@@ -2,6 +2,11 @@ package markInput;
 
 import java.io.File;
 
+/**
+ * 这个是用来测试随机访问文件，并且记录当前行位置的方法
+ * @author Administrator
+ *
+ */
 public class InputTest {
     private  File file;
     public final static int count = 100;

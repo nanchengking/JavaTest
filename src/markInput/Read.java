@@ -5,6 +5,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
+/**
+ * 真的很好用！！！
+ * @author Administrator
+ *
+ */
 public class Read implements Runnable {
     RandomAccessFile reader;
     File file;
