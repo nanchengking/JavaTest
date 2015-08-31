@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Read implements Runnable {
     RandomAccessFile reader;
@@ -21,9 +23,23 @@ public class Read implements Runnable {
                     reader.seek(point);
                     while((str= reader.readLine())!=null){
                         System.out.println("读取"+reader.getFilePointer());
-                        buffer.append(str);
+                        buffer.append(str+"\n");
                     }
-                    System.out.println("===: "+buffer.toString());
+                    String test=buffer.toString();
+                    String pattern = "^\n?(.*?)\n?$";
+
+                    // 创建 Pattern 对象
+                    Pattern r = Pattern.compile(pattern);
+
+                    // 现在创建 matcher 对象
+                    Matcher m = r.matcher(test);
+                    if (m.find( )) {
+                       test=m.group(0);
+                       System.out.println("Found value: " + m.group(0) );
+                    } else {
+                       System.out.println("NO MATCH");
+                    }
+                    System.out.println(" real data is===: "+test);
                     Thread.sleep(1000);
                 }
             } catch (IOException e) {
