@@ -17,5 +17,4 @@ public class BinaryNode<T> {
     public BinaryNode() {
         this(null, null, null);
     }
-
 }

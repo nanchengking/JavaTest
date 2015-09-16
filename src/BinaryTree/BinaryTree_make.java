@@ -23,4 +23,10 @@ public class BinaryTree_make {
         return tree;
     }
 
+    public static BinaryTree<String> recoverByPreAndIn(String[] pre,String[] in){
+        BinaryTree<String> tree = new BinaryTree<String>();
+        BinaryNode<String> root=new BinaryNode<String>(pre[0]);
+        return null;
+        
+    }
 }
