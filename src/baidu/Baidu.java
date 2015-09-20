@@ -5,19 +5,20 @@ import java.util.Scanner;
 public class Baidu {
 
     public static void main(String[] args) {
-        // System.out.println(getSum("81 4 \n 2 2"));
-        // System.out.println(getFlower("100 120 \n 300 380"));
-        int[] arr = { 2, 1, 0,3, 4,5};
-        Scanner sc=new Scanner(System.in);
-        int len= sc.nextInt();
-        String numbs=sc.nextLine();
-        String[] chars=numbs.trim().split(" ");
-        int[] array=new int[chars.length];
-        for(int i=0;i<array.length;i++){
-            array[i]=Integer.parseInt(chars[i]);
+     /*    System.out.println(getSum("81 4 \n 2 2"));
+         System.out.println(getFlower("100 120 \n 300 380"));
+        int[] arr = { 2, 1, 0, 3, 4, 5 };
+        Scanner sc = new Scanner(System.in);
+        int len = sc.nextInt();
+        String numbs = sc.nextLine();
+        String[] chars = numbs.trim().split(" ");
+        int[] array = new int[chars.length];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = Integer.parseInt(chars[i]);
         }
+        System.out.println(reverse(arr, arr.length));*/
         
-        System.out.println(reverse(arr, arr.length));
+        System.out.println(reverseString("abcd efgh ij k "));
     }
 
     public static String getSum(String numList) {
@@ -97,7 +98,7 @@ public class Baidu {
                 if (arr[i] > arr[i + 1]) {
                     isIncrease = false;
                     num++;
-                    bf.append(i-1);
+                    bf.append(i - 1);
                 }
             } else {
                 if (arr[i] < arr[i + 1]) {
@@ -107,29 +108,52 @@ public class Baidu {
                 }
             }
         }
-        char[] chars= bf.toString().toCharArray();
-        int[] results=new int[chars.length];
-        for(int j=0;j<chars.length;j++){
-            char[] a={chars[j]};
-            results[j]=Integer.parseInt(new String(a));
+        char[] chars = bf.toString().toCharArray();
+        int[] results = new int[chars.length];
+        for (int j = 0; j < chars.length; j++) {
+            char[] a = { chars[j] };
+            results[j] = Integer.parseInt(new String(a));
         }
         if (num == 1) {
             if (oldIsIncrean) {
-                if (arr[results[0]] < arr[len-1]) {
+                if (arr[results[0]] < arr[len - 1]) {
                     return "yes";
                 }
             } else {
-                if (arr[results[0]+1] > arr[0]) {
+                if (arr[results[0] + 1] > arr[0]) {
                     return "yes";
                 }
             }
-        }else if(num==2){
-            if(oldIsIncrean){
-                if(arr[results[0]] < arr[results[1]]&&arr[results[0]+1]<arr[results[1]+1]){
+        } else if (num == 2) {
+            if (oldIsIncrean) {
+                if (arr[results[0]] < arr[results[1]] && arr[results[0] + 1] < arr[results[1] + 1]) {
                     return "yes";
                 }
             }
         }
         return "no";
+    }
+
+    /**
+     * 反转字符串,不用StringBuffer来实现
+     * 
+     * @param str
+     */
+    public static String reverseString(String str) {
+        if (str.trim().equals(" ")) {
+            return str;
+        }
+        char[] chars = str.toCharArray();
+        char tem;
+        int head = 0;
+        int tail = str.length() - 1;
+        while (tail > head) {
+            tem = chars[head];
+            chars[head] = chars[tail];
+            chars[tail] = tem;
+            tail--;
+            head++;
+        }
+        return new String(chars);
     }
 }
