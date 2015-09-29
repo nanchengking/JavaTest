@@ -1,4 +1,9 @@
 public class Test01 {
+    @Override
+    protected void finalize() throws Throwable {
+        // TODO Auto-generated method stub
+        super.finalize();
+    }
     public static int a=3;
     public static void main(String args[]) {
         mTest test=new mTest();
